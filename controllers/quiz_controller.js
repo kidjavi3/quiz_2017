@@ -289,6 +289,8 @@ exports.randomplay = function (req, res, next) {
 // GET /quizzes/randomcheck/:quizId
 exports.randomcheck = function (req, res, next) {
 
+	if(!req.session.aciertos) req.session.aciertos=0;
+	var score=req.session.aciertos;
     models.Quiz.count()
     .then(function (count) {
 
